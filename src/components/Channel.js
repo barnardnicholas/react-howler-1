@@ -9,7 +9,8 @@ class Channel extends Component {
     playing: false,
     volume: 0.7,
     pan: 0.5,
-    loop: true
+    loop: true,
+    mute: false
   };
 
   componentDidMount() {
@@ -28,6 +29,11 @@ class Channel extends Component {
     this.setState({ playing: !playing });
   };
 
+  handleMute = () => {
+    const { mute } = this.state;
+    this.setState({ mute: !mute });
+  };
+
   handleVolumeChange = event => {
     const { value } = event.target;
     this.setState({ volume: value });
@@ -40,11 +46,12 @@ class Channel extends Component {
   };
 
   render() {
-    const { name, key, filepath, playing, volume, pan, loop } = this.state;
+    const { name, filepath, playing, volume, pan, loop, mute } = this.state;
     return (
       <>
         <p>{name}</p>
         <button onClick={this.handlePlay}>Play/Pause</button>
+        <button onClick={this.handleMute}>Mute</button>
         <label>
           Volume
           <input
@@ -75,6 +82,7 @@ class Channel extends Component {
           loop={loop}
           volume={volume}
           pan={pan}
+          mute={mute}
         />
       </>
     );

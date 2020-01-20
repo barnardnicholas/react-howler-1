@@ -3,7 +3,7 @@ import ReactHowler from "react-howler";
 
 class Sound extends Component {
   render() {
-    const { src, playing, loop, volume, pan } = this.props;
+    const { src, playing, loop, volume, pan, mute } = this.props;
     let volNumber = parseFloat(volume);
     let panNumber = parseFloat(pan);
     return (
@@ -13,6 +13,7 @@ class Sound extends Component {
         loop={loop}
         volume={volNumber}
         stereo={panNumber}
+        mute={mute}
         ref={ref => (this.player = ref)}
       />
     );
