@@ -7,7 +7,7 @@ export const channelList = [
     key: "swamp",
     volume: 0.7,
     filepath: swamp,
-    pan: 0.1,
+    pan: 0.5,
     loop: true
   },
   {
@@ -15,7 +15,7 @@ export const channelList = [
     key: "crickets",
     volume: 0.7,
     filepath: crickets,
-    pan: 0.9,
+    pan: 0.5,
     loop: true
   }
 ];

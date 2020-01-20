@@ -33,6 +33,12 @@ class Channel extends Component {
     this.setState({ volume: value });
   };
 
+  handlePanChange = (event, cb) => {
+    const { value } = event.target;
+    this.setState({ pan: value });
+    // cb(value);
+  };
+
   render() {
     const { name, key, filepath, playing, volume, pan, loop } = this.state;
     return (
@@ -50,6 +56,18 @@ class Channel extends Component {
             onChange={this.handleVolumeChange}
           ></input>
           {volume}
+        </label>
+        <label>
+          Pan
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={pan}
+            onChange={this.handlePanChange}
+          ></input>
+          {pan}
         </label>
         <Sound
           src={[filepath]}
