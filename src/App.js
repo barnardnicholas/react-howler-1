@@ -1,12 +1,20 @@
 import React from "react";
-import logo from "./logo.svg";
+import * as dummyData from "./data/dummy-data";
 import "./App.css";
-import Player from "./components/Player";
+import Channel from "./components/Channel";
 
 function App() {
   return (
     <div className="App">
-      <Player />
+      <ul>
+        {dummyData.channelList.map(channel => {
+          return (
+            <li key={channel.key}>
+              <Channel channel={channel} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
